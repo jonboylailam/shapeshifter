@@ -39,8 +39,7 @@ create_topojson () {
         echo "Creating the temp directory $tmpDir"
     fi
 
-
-    topojson -o $tmpDir/tmp.json -q 1e5 --id-property=+iso_n3 -p -- land=shpfiles/$2 countries=$3
+    topojson -o $tmpDir/tmp.json -q 1e5 --id-property=+iso_n3 -p iso_a2,adm0_a3,gn_a1_code,gns_region,name -- land=$3 countries=$3
     topojson-merge -o $1 --io=land --oo=land --no-key -- $tmpDir/tmp.json
     rm -rf $tmpDir
 }
@@ -127,7 +126,7 @@ create_region_s "ET" "ADM0_A3 IN ('ETH')"
 create_region_s "FI" "ADM0_A3 IN ('FIN')"
 create_region_s "FJ" "ADM0_A3 IN ('FJI')"
 create_region_s "FK" "ADM0_A3 IN ('FLK')"
-create_region_s "FR" "ADM0_A3 IN ('FRA')"
+create_region_s "FR" "ADM0_A3 IN ('FRA') AND TYPE_EN like 'Metropolitan%'"
 create_region_s "FO" "ADM0_A3 IN ('FRO')"
 create_region_s "FM" "ADM0_A3 IN ('FSM')"
 create_region_s "GA" "ADM0_A3 IN ('GAB')"
@@ -214,7 +213,7 @@ create_region_s "NF" "ADM0_A3 IN ('NFK')"
 create_region_s "NG" "ADM0_A3 IN ('NGA')"
 create_region_s "NI" "ADM0_A3 IN ('NIC')"
 create_region_s "NU" "ADM0_A3 IN ('NIU')"
-create_region_s "NL" "ADM0_A3 IN ('NLD')"
+create_region_s "NL" "ADM0_A3 IN ('NLD') AND TYPE_EN NOT LIKE 'Special%'"
 create_region_s "NO" "ADM0_A3 IN ('NOR')"
 create_region_s "NP" "ADM0_A3 IN ('NPL')"
 create_region_s "NR" "ADM0_A3 IN ('NRU')"
