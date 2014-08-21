@@ -45,18 +45,7 @@ create_topojson () {
     rm -rf $tmpDir
 }
 
-create_region () {
-    create_shp "$1.shp" "$2" "ne_10m_admin_0_countries.shp"
-    create_topojson "out/json/region/$1/topo.json" "ne_10m_land.shp" "out/$1.shp/$1.shp"
-}
-
-# with provinces
-create_region_s () {
-    create_shp "$1-s.shp" "$2" "ne_10m_admin_1_states_provinces.shp"
-    create_topojson "out/json/region/$1/topo-s.json" "ne_10m_land.shp" "out/$1-s.shp/$1-s.shp"
-}
-
 ## Use the ogr2ogr command to generate the shp files we want
-create_shp "world-no-antartica.shp" "ADM0_A3 NOT IN ('ATA')" "ne_50m_admin_0_countries.shp"
-create_topojson "out/json/world/world-no-antartica.json" "ne_50m_land.shp" "out/world-no-antartica.shp/world-no-antartica.shp"
+create_shp "world-no-antarctica.shp" "ADM0_A3 NOT IN ('ATA')" "ne_50m_admin_0_countries.shp"
+create_topojson "out/json/world/world-no-antarctica.json" "ne_50m_land.shp" "out/world-no-antartica.shp/world-no-antartica.shp"
 
