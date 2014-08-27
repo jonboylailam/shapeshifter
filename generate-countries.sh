@@ -92,7 +92,9 @@ create_region_s () {
 #create_region_s "FR" "ADM0_A3 IN ('FRA') AND TYPE_EN like 'Metropolitan%'"
 #create_region_s "NL" "ADM0_A3 IN ('NLD') AND TYPE_EN NOT LIKE 'Special%'"
 #create_region_s "NO" "ADM0_A3 IN ('NOR')"
-create_region_s "PT" "ADM0_A3 IN ('PRT')"
+#create_region_s "PT" "ADM0_A3 IN ('PRT')"
+#create_region_s "EH" "ADM0_A3 IN ('SAH')"
+create_region_s "SS" "ADM0_A3 IN ('SDN')"
 
 
 
